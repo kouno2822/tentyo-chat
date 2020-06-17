@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+.Header{
+  height: 100px;
+  width: 100vw;
+  background-color: rgb(38, 54, 70);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  line-height: 100px;
+  &__title{
+    font-size: 40px;
+    margin-left: 20px;
+  }
+  &__group_name{
+    font-size: 30px;
+    position: absolute;
+    left: 350px;
+  }
+  &__show{
+    font-size: 30px;
+    margin-right: 20px;
+  }
+}
+
+.Main{
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  &__left{
+    width: 20vw;
+    border-right: solid 2px rgb(163, 161, 161);
+    &__group{
+      height: 100px;
+      border-bottom: solid 1px rgb(163, 161, 161);
+      margin: 10px 0px 0px 10px;
+      &-name{
+        height: 30px;
+        font-size: 30px;
+        color: rgb(90, 89, 89);
+      }
+      &-text{
+        height: 20px;
+        font-size: 20px;
+        color: rgb(146, 145, 145);
+        margin-top: 10px;
+      }
+      &-time{
+        height: 15px;
+        color: rgb(146, 145, 145);
+        margin-top: 5px;
+      }
+    }
+  }
+  &__right{
+    width: 80vw;
+    &__message{
+      height: 90%;
+      overflow:auto;
+      &__block{
+        margin: 15px 5px 10px 5px;
+        // border: solid 1px rgb(146, 145, 145);
+        &-text{
+          margin: 5px;
+          font-size: 20px;
+          display: inline;
+        }
+        &-info{
+          display: flex;
+          margin: 5px 0 5px 5px;
+          color: rgb(146, 145, 145);
+          &-name{
+
+          }
+          &-time{
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    &__form{
+      height: 10%;
+      display: flex;
+      align-items: center;
+      background-color: rgb(38, 54, 70);
+      &-text{
+        height: 80%;
+        width: 90%;
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+      &-btn{
+        -webkit-appearance: none;
+        width: 80px;
+        height: 80%;
+        background-color: rgb(38, 54, 70);
+        color: white;
+      }
+    }
+  }
+}
