@@ -1,2 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 @import "reset";
 @import "messages";
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+@import "flash";
+@import "groups/index";
+@import "groups/new";
+@import "groups/edit";

@@ -1,0 +1,107 @@
+<div class="Header">
+  <div class="Header__title">〜店長チャット〜</div>
+  <div class="Header__group">
+    <div class="Header__group-name">グループ名</div>
+    <%= link_to "詳細",'edit_group_path(@groups)' ,class: "Header__group-show"%>
+  </div>
+  <div class="Header__user">
+    <div class="Header__user-name">こんにちは: ユーザーネーム さん</div>
+    <%= link_to 'グループ作成',new_group_path, class: "Header__user-new_group" %>
+    <div class="Header__user-info">
+      <%= link_to 'ユーザー編集',edit_user_registration_path, class: "Header__user-info-edit" %>
+      <%= link_to 'ログアウト',destroy_user_session_path, class: "Header__user-info-log_out", method: :delete %>
+    </div>
+  </div>
+</div>
+<div class="Main">
+  <div class="Main__left">
+    <div class="Main__left__group">
+      <div class="Main__left__group-name">サンプルグループ</div>
+      <div class="Main__left__group-text">最新テキスト</div>
+      <div class="Main__left__group-time">2020/06/20</div>
+    </div>
+    <div class="Main__left__group">
+      <div class="Main__left__group-name">サンプルグループ2</div>
+      <div class="Main__left__group-text">最新テキスト</div>
+      <div class="Main__left__group-time">2020/06/18</div>
+    </div>
+  </div>
+  <div class="Main__right">
+    <div class="Main__right__message">
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">サンプル</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+      <div class="Main__right__message__block">
+        <div class="Main__right__message__block-text">テキスト</div>
+        <div class="Main__right__message__block-info">
+          <div class="Main__right__message__block-info-name">太郎</div>
+          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
+        </div>
+      </div>
+    </div>
+    <form action="#" class="Main__right__form"> 
+      <input type="text" placeholder="テキストを入力してください" class="Main__right__form-text">
+      <input type="submit" value="送信" class="Main__right__form-btn">
+    </form>
+  </div>
+</div>
