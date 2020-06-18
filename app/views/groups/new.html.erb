@@ -5,10 +5,6 @@
   <div class = "Edit_main__create">グループ作成</div>
   <div class="Edit_main__create_box">
     <div class="Edit_main__create_box__name">グループ名</div>
-    <%# <form action="#" class="Edit_main__create_box__form"> 
-      <input type="text" placeholder="グループ名を入力してください" class="Edit_main__create_box__form-text">
-      <input type="submit" value="作成" class="Edit_main__create_box__form-btn">
-    </form> %>
     <%= form_with model: @group,class: "Edit_main__create_box__form", local: true do |form| %>
       <%= form.text_field :group_name, class: "Edit_main__create_box__form-text", placeholder: "グループ名を入力してください" %>
       <%= form.submit "作成", class: "Edit_main__create_box__form-btn" %>

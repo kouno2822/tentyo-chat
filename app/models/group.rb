@@ -1,9 +1,7 @@
 class Group < ApplicationRecord
-  def change
-    create_table :groups do |t|
-      t.string :name, null: false
-      t.index :name, unique: true
-      t.timestamps
-    end
-  end
+  has_many :group_users
+  has_many :users, through: :group_users
+  has_many :messages
+  validates :group_name, presence: true, uniqueness: true
 end
+
