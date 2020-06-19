@@ -1,0 +1,15 @@
+<div class="Header">
+  <div class="Header__title">〜店長チャット〜</div>
+  <%= link_to '新規グループ作成',new_group_path, class: "Header__new_group" %>
+  <div class="Header__group">
+    <div class="Header__group-name"><%= @group.group_name %></div>
+    <%= link_to "グループ退会",'#' ,class: "Header__group-show"%>
+  </div>
+  <div class="Header__user">
+    <div class="Header__user-name">こんにちは: <%= current_user.name %> さん</div>
+    <div class="Header__user-info">
+      <%= link_to 'ユーザー編集',edit_user_registration_path, class: "Header__user-info-edit" %>
+      <%= link_to 'ログアウト',destroy_user_session_path, class: "Header__user-info-log_out", method: :delete %>
+    </div>
+  </div>
+</div>
