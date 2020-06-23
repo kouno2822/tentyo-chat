@@ -25,12 +25,14 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = Group.all
   end
 
   def join
-    @group = Group.find(:id)
+    @group = Group.find(params[:id])
     @group.users << current_user
     @group.save
+    redirect_to root_path, notice: 'グループに参加しました'
   end
 
   private

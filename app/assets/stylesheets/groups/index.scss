@@ -23,7 +23,7 @@
   }
 
   &__group{
-    margin-top: 20px;
+    margin-top: 25px;
     position: absolute;
     left: 400px;
     &-name{
@@ -32,7 +32,7 @@
       margin-bottom: 10px;
     }
     &-show{
-      font-size: 20px;
+      font-size: 17px;
       height: 40px;
       margin-top: 40px;
       text-decoration: none;
@@ -40,13 +40,13 @@
     }
   }
   &__user{
-    margin-top: 10px;
+    margin-top: 40px;
     &-name{
       font-size: 15px;
       height: 30px;
     }
     &-info{
-      font-size: 15px;
+      font-size: 17px;
       height: 20px;
       margin-top: 5px;
       margin-bottom: 5px;
@@ -70,7 +70,9 @@
   background-color: #fff;
   display: flex;
   &__left{
+    display: block;
     width: 20vw;
+    overflow: auto;
     border-right: solid 2px rgb(163, 161, 161);
     &__search{
       border-bottom: solid 1px rgb(163, 161, 161);
@@ -86,7 +88,7 @@
           width: 80%;
         }
         &-btn{
-
+          
         }
       }
     }
@@ -95,6 +97,9 @@
       border-bottom: solid 1px rgb(163, 161, 161);
       margin: 5px 0px 0px 5px;
       position: relative;
+      &-a{
+        text-decoration: none;
+      }
       &-name{
         font-size: 20px;
         color: rgb(90, 89, 89);
@@ -108,7 +113,9 @@
         color: rgb(146, 145, 145);
       }
       &-btn{
+        display: inline-block;
         background-color: rgb(107, 107, 107);
+        text-decoration: none;
         color: white;
         height: 30px;
         width: 80px;
@@ -118,17 +125,17 @@
         position: absolute;
         bottom: 3px;
         right: 3px;
+
       }
     }
   }
   &__right{
     width: 80vw;
     &__message{
-      height: 90%;
+      height: calc(100vh - 170px);
       overflow:auto;
       &__block{
         margin: 15px 5px 10px 5px;
-        // border: solid 1px rgb(146, 145, 145);
         &-text{
           margin: 5px;
           font-size: 20px;
@@ -148,7 +155,8 @@
       }
     }
     &__form{
-      height: 10%;
+      height: 70px;
+      width: 100%;
       display: flex;
       align-items: center;
       background-color: rgb(38, 54, 70);

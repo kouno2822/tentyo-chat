@@ -1,82 +1,13 @@
-<%= render partial: 'layouts/group_name',locals:{group: @group} %>
+<%= render partial: 'layouts/group_name' %>
 <div class="Main">
-  <%= render partial: 'layouts/group_index' %>
+  <%= render partial: 'layouts/group_index', locals: {groups: @groups} %>
   <div class="Main__right">
     <div class="Main__right__message">
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">サンプル</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
-      <div class="Main__right__message__block">
-        <div class="Main__right__message__block-text">テキスト</div>
-        <div class="Main__right__message__block-info">
-          <div class="Main__right__message__block-info-name">太郎</div>
-          <div class="Main__right__message__block-info-time">2020/06/01 12:45</div>
-        </div>
-      </div>
+      <%= render partial: 'message', collection: @messages, as: 'message' %>
     </div>
-    <form action="#" class="Main__right__form"> 
-      <input type="text" placeholder="テキストを入力してください" class="Main__right__form-text">
-      <input type="submit" value="送信" class="Main__right__form-btn">
-    </form>
+    <%= form_with model: [@group,@message], class: 'Main__right__form', local: true do |f| %>
+      <%= f.text_area :text, class: 'Main__right__form-text' %>
+      <%= f.submit '送信', class: 'Main__right__form-btn' %>
+    <% end %>
   </div>
 </div>

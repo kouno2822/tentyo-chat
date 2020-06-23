@@ -11,16 +11,17 @@
       <input type="submit" value="検索" class="Main__left__search-main-btn">
     </form>
   </div>
-  <div class="Main__left__group">
-    <div class="Main__left__group-name">サンプルグループ</div>
-    <div class="Main__left__group-text">最新テキスト</div>
-    <div class="Main__left__group-time">2020/06/20</div>
-    <%= button_to "参加する", '#', class: "Main__left__group-btn" %>
-  </div>
-  <div class="Main__left__group">
-    <div class="Main__left__group-name">サンプルグループ2</div>
-    <div class="Main__left__group-text">最新テキスト</div>
-    <div class="Main__left__group-time">2020/06/18</div>
-    <%= button_to "参加する", '#', class: "Main__left__group-btn" %>
-  </div>
+  <% groups.each do |group| %>  
+    <div class="Main__left__group">
+     <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
+        <div class="Main__left__group-name">
+          <%= group.group_name %>
+        </div>
+        <div class="Main__left__group-text">最新テキスト</div>
+        <div class="Main__left__group-time">2020/06/20</div>
+        <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
+     <% end %>
+    </div>
+  <% end %>
 </div>
+
