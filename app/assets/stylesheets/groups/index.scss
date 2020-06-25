@@ -10,6 +10,8 @@
     font-size: 30px;
     margin-left: 20px;
     line-height: 80px;
+    text-decoration: none;
+    color: white;
     font-family: 'Sawarabi Mincho', sans-serif;
   }
   &__new_group{
@@ -125,7 +127,6 @@
         position: absolute;
         bottom: 3px;
         right: 3px;
-
       }
     }
   }

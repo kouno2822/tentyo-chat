@@ -7,7 +7,7 @@
       <%= message.user.name %>
     </div>
     <div class="Main__right__message__block-info-time">
-      <%= message.created_at %> 
+      <%= message.created_at.to_s(:datetime_jp) %> 
     </div>
   </div>
 </div>

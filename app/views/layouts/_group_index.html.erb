@@ -1,15 +1,16 @@
 <div class="Main__left">
   <div class="Main__left__search">
     <div class="Main__left__search-squeeze">
-      <form action="#" class="Main__left__search-squeeze-box">
-        <input type="checkbox">
-      </form>
-      <p>参加中のグループに絞る</p>
+      <%= form_with(url: root_path, method: :get, class: 'Main__left__search-squeeze-box', local: true) do |f| %>
+        <%= f.check_box :filter%>
+        <%= label_tag :filter, '参加中のグループに絞る' %>
+        <%= f.submit '絞る' %>
+      <% end %>
     </div>
-    <form action="#" class="Main__left__search-main"> 
-      <input type="text" placeholder="グループを検索" class="Main__left__search-main-text">
-      <input type="submit" value="検索" class="Main__left__search-main-btn">
-    </form>
+    <%= form_with(url: root_path, method: :get, class: 'Main__left__search-main', local: true) do |f| %>
+      <%= f.text_field :keyword, class: 'Main__left__search-main-text' %>
+      <%= f.submit '検索', class: 'Main__left__search-main-btn' %>
+    <% end %>
   </div>
   <% groups.each do |group| %>  
     <div class="Main__left__group">
@@ -17,10 +18,18 @@
         <div class="Main__left__group-name">
           <%= group.group_name %>
         </div>
-        <div class="Main__left__group-text">最新テキスト</div>
-        <div class="Main__left__group-time">2020/06/20</div>
-        <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
+        <div class="Main__left__group-text">
+          <%= group.last_text%>
+        </div>
+        <div class="Main__left__group-time">
+          <%= group.last_text_time %>
+        </div>
      <% end %>
+        <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
+          <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
+        <% else %>
+          <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
+        <% end %>
     </div>
   <% end %>
 </div>

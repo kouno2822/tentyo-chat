@@ -25,18 +25,32 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    # @groups = Group.all
+    @search_groups = Group.search(params[:keyword])
+    checkbox
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.users.delete(current_user)
+    redirect_to root_path, notice: 'グループから退会しました'
   end
 
   def join
     @group = Group.find(params[:id])
     @group.users << current_user
     @group.save
-    redirect_to root_path, notice: 'グループに参加しました'
+    redirect_to group_messages_path(@group), notice: 'グループに参加しました'
   end
 
   private
   def group_params
     params.require(:group).permit(:group_name)
+  end
+
+  def checkbox
+    if params[:filter] == '1'
+      @search_groups = current_user.groups
+    end
   end
 end

@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### アプリ概要
+メッセージが投稿できる掲示板のようなチャットアプリです。
 
-Things you may want to cover:
+### 機能一覧
+* ユーザー登録機能
+* ゲスト登録機能
+* メッサージ投稿機能
+* グループ作成機能
+* グループ検索機能
 
-* Ruby version
+### 技術一覧
+* フロント
+HTML,SCSS,jQuery
+* バックエンド
+Ruby,Rails
+* DB
+MySQL
+* インフラ
+AWS
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
