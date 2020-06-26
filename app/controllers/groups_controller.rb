@@ -26,12 +26,12 @@ class GroupsController < ApplicationController
 
   def index
     # @groups = Group.all
-    @groups = Group.includes(:message).order("messages.created_at DESC")
-    binding.pry
+    # @groups = Group.includes(:message).order("messages.created_at DESC")
+    # binding.pry
     # @search_groups = checkbox
     # @search_groups = Group.search(params[:keyword])
 
-    # @groups = Group.double_search(params[:keyword],params[:filter],current_user)
+    @groups = Group.double_search(params[:keyword],params[:filter],current_user)
   end
 
   def destroy
