@@ -22,9 +22,22 @@ class Group < ApplicationRecord
     end
   end
 
-  def self.search(search)
-    return Group.all unless search
-    Group.where("group_name LIKE(?)","%#{search}%")
+  # def self.search(search)
+  #   return Group.all unless search
+  #   Group.where("group_name LIKE(?)","%#{search}%")
+  # end
+
+  def self.double_search(keyword,filter,user)
+    if keyword.present? && filter == '1'
+      Group.where("group_name LIKE(?)","%#{keyword}%").where(id: user.group_users)
+    elsif keyword.present?
+      Group.where("group_name LIKE(?)","%#{keyword}%")
+    elsif filter == '1'
+      user.groups
+    else
+      Group.all
+    end
   end
+
 end
 

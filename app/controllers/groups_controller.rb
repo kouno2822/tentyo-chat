@@ -26,8 +26,12 @@ class GroupsController < ApplicationController
 
   def index
     # @groups = Group.all
-    @search_groups = Group.search(params[:keyword])
-    checkbox
+    @groups = Group.includes(:message).order("messages.created_at DESC")
+    binding.pry
+    # @search_groups = checkbox
+    # @search_groups = Group.search(params[:keyword])
+
+    # @groups = Group.double_search(params[:keyword],params[:filter],current_user)
   end
 
   def destroy
@@ -48,9 +52,11 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:group_name)
   end
 
-  def checkbox
-    if params[:filter] == '1'
-      @search_groups = current_user.groups
-    end
-  end
+  # def checkbox
+  #   if params[:filter] == '1'
+  #     @checkbox_groups = current_user.groups
+  #   else
+  #     @checkbox_groups = Group.all
+  #   end
+  # end
 end
