@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: tentyo_chat_production
-  username: tentyo_chat
-  password: <%= ENV['TENTYO_CHAT_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
