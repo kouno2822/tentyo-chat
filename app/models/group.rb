@@ -29,7 +29,7 @@ class Group < ApplicationRecord
 
   def self.double_search(keyword,filter,user)
     if keyword.present? && filter == '1'
-      Group.where("group_name LIKE(?)","%#{keyword}%").where(id: user.group_users)
+      Group.where("group_name LIKE(?)","%#{keyword}%").where(id: user.groups)
     elsif keyword.present?
       Group.where("group_name LIKE(?)","%#{keyword}%")
     elsif filter == '1'
