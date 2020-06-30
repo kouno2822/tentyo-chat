@@ -27,6 +27,10 @@ class Group < ApplicationRecord
   #   Group.where("group_name LIKE(?)","%#{search}%")
   # end
 
+  def self.sort_group
+    includes(:messages).joins(:messages).order("messages.created_at DESC")
+  end
+
   def self.double_search(keyword,filter,user)
     if keyword.present? && filter == '1'
       Group.where("group_name LIKE(?)","%#{keyword}%").where(id: user.groups)

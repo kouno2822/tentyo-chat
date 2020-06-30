@@ -25,8 +25,8 @@ class GroupsController < ApplicationController
   end
 
   def index
-    # @groups = Group.all
-    # @groups = Group.includes(:message).order("messages.created_at DESC")
+    # @groups = Group.all.order("created_at DESC")
+    # @groups = Group.sort_group
     # binding.pry
     # @search_groups = checkbox
     # @search_groups = Group.search(params[:keyword])
