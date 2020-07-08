@@ -1,48 +1,41 @@
-<h2>ユーザー編集</h2>
+<div class="Edit">
+  <div class="Edit__top"></div>
+  <div class="Edit__main">
+    <div class="Edit__main__left"></div>
+    <div class="Edit__main__center">
+      <div class= 'Edit__main__center__text'>
+        ユーザー編集
+      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: 'Edit__main__center__form', html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.label :ユーザーネーム, class: 'Edit__main__center__form-text' %><br />
+        <%= f.text_field :name, autofocus: true, class: 'Edit__main__center__form-name' %>
 
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :name, autofocus: true %>
+        <%= f.label :email, class: 'Edit__main__center__form-text' %><br />
+        <%= f.email_field :email, autocomplete: "email", class: 'Edit__main__center__form-email' %>
+
+        <%= f.label :パスワード（6文字以上）, class: 'Edit__main__center__form-text' %> <i>(変更したくない場合は空白)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'Edit__main__center__form-pass' %>
+
+        <%= f.label :パスワード（確認用）, class: 'Edit__main__center__form-text' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'Edit__main__center__form-pass_conf' %>
+
+        <%= f.label :現在のパスワード, class: 'Edit__main__center__form-text' %> <i>(ユーザー情報の変更には現在のパスワードが必要)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: 'Edit__main__center__form-pass_conf' %>
+ 
+
+        <%= f.submit "更新", class: 'Edit__main__center__form-btn' %>
+      <% end %>
+
+      <div class= 'Edit__main__center__delete'>
+        <div class= 'Edit__main__center__delete-text'>アカウントの削除</div>
+        <%= button_to "削除", user_registration_path, data: { confirm: "Are you sure?" },class: 'Edit__main__center__delete-btn', method: :delete %>
+      </div>
+
+      <%= link_to "戻る", root_path, class: 'Edit__main__center__form-btn' %>
+    </div>
+    <div class="Edit__main__right"></div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(変更したくない場合は空白のままで大丈夫です)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>最低<%= @minimum_password_length %>文字以上</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(新たな情報への変更には、現在のパスワードが必要です)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<h3>アカウントの削除</h3>
-
-<p><%= button_to "削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
+  <div class="Edit__bottom"></div>
+</div>

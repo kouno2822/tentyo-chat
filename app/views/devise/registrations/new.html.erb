@@ -1,8 +1,3 @@
-<div class="Notification">
-  <% flash.each do |key,value| %>
-    <%= content_tag(:div, value, class: key) %>
-  <% end %>
-</div>
 <div class="Signup">
   <div class="Signup__top"></div>
   <div class="Signup__main">
@@ -17,20 +12,17 @@
       </div>
 
       <%= form_with model: @user,url: user_registration_path, local: true, class: 'Signup__main__center__form' do |f| %>
-
+        <%= render "devise/shared/error_messages", resource: resource %>
         <%= f.label :ユーザーネーム, class: 'Signup__main__center__form-text' %><br />
         <%= f.text_field :name, autofocus: true, class: 'Signup__main__center__form-name' %><br />
 
         <%= f.label :email, class: 'Signup__main__center__form-text' %><br />
         <%= f.email_field :email, autocomplete: "email", class: 'Signup__main__center__form-email' %><br />
 
-        <%= f.label :password, class: 'Signup__main__center__form-text' %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>文字以上)</em>
-        <% end %><br />
+        <%= f.label :パスワード（6文字以上）, class: 'Signup__main__center__form-text' %><br />
         <%= f.password_field :password, autocomplete: "new-password", class: 'Signup__main__center__form-pass' %><br />
 
-        <%= f.label :password_confirmation, class: 'Signup__main__center__form-text' %><br />
+        <%= f.label :パスワード（確認用）, class: 'Signup__main__center__form-text' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'Signup__main__center__form-pass_conf' %><br />
 
         <%= f.submit "登録", class: 'Signup__main__center__form-btn' %>

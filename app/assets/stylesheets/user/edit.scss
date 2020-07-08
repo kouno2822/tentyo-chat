@@ -13,7 +13,7 @@ $back_ground_color: rgb(240, 240, 240);
 .field_with_errors{
   display: contents;
 }
-.Signup{
+.Edit{
   background: $back_ground_color;
   margin-top: 0;
   &__top{
@@ -93,6 +93,30 @@ $back_ground_color: rgb(240, 240, 240);
           line-height: 50px;
           margin: 0 auto;
           margin-top: 30px;
+        }
+      }
+      &__delete{
+        border-top: 1px solid $back_ground_color;
+        padding-top: 30px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        &-text{
+          text-align: center;
+        }
+        &-btn{
+          text-align: center;
+          display: block;
+          text-decoration: none;
+          border-radius: 4px;
+          border: solid 1px #0099e8;
+          background-color: #0099e8;
+          color: #fff;
+          line-height: 40px;
+          width: 300px;
+          height: 50px;
+          line-height: 50px;
+          margin: 0 auto;
+          margin-top: 5px;
         }
       }
     }
