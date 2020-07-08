@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   
   def update
     if @group.update
-      ridirect_to messages_path
+      redirect_to messages_path
     else
       render root_path
     end
