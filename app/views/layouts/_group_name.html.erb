@@ -1,6 +1,6 @@
 <div class="Header">
   <%= link_to "〜店長チャット〜", root_path, class: 'Header__title' %>
-  <%= link_to '新規グループ作成',new_group_path, class: "Header__new_group" %>
+  <%= link_to '新規グループ作成', '#', class: "Header__new_group", id: 'group_modal' %>
   <div class="Header__group">
     <div class="Header__group-name"><%= @group.group_name %></div>
     <%= link_to "グループ退会",group_path(@group), method: :delete,class: "Header__group-show"%>
