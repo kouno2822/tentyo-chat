@@ -1,7 +1,4 @@
 class GroupsController < ApplicationController
-  def new
-    @group = Group.new
-  end
   
   def create
     @group = Group.new(group_params)
@@ -25,6 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @group = Group.new
     # @groups = Group.all.order("created_at DESC")
     # @groups = Group.sort_group
     # binding.pry

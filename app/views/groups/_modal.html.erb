@@ -1,0 +1,11 @@
+<div class="group__create" id="group_create-modal"></div>
+<div class="group__create__box">
+  <div class="group__create__box-text">
+    〜 新規グループ作成 〜
+  </div>
+  <div class="group__create__box-cross">×</div>
+  <%= form_with model: @group, class: "group__create__box-form", local: true do |form| %>
+    <%= form.text_field :group_name, class: "group__create__box-form-text", placeholder: "グループ名を入力してください", value: '' %>
+    <%= form.submit "作成", class: "group__create__box-form-btn" %>
+  <% end %> 
+</div>
