@@ -3,7 +3,7 @@
     <%= form_with(url: root_path, method: :get, class: 'Main__left__search-main', local: true) do |f| %>
       <%= f.check_box :filter%>
       <%= label_tag :filter, '参加中のグループに絞る' %>
-      <%= f.text_field :keyword, class: 'Main__left__search-main-text' %>
+      <%= f.text_field :keyword, placeholder: 'グループ名を検索', class: 'Main__left__search-main-text' %>
       <%= f.submit '検索', class: 'Main__left__search-main-btn' %>
     <% end %>
   </div>
