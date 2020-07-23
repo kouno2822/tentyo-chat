@@ -15,9 +15,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    if current_user.email == 'guest@example.com'
+      redirect_to root_path, notice: 'ゲストユーザーはユーザー編集できません'
+    else
+      super
+    end
+  end
 
   # PUT /resource
   # def update
