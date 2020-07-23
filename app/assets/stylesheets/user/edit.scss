@@ -3,7 +3,7 @@ $back_ground_color: rgb(240, 240, 240);
   border: solid 1px rgb(170, 170, 170);
   border-radius: 4px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   margin-top: 5px;
   height: 50px;
   padding-left: 10px;
@@ -135,4 +135,8 @@ $back_ground_color: rgb(240, 240, 240);
 #error_explanation{
   margin-left: 125px;
   margin-bottom: 15px;
+}
+span{
+  margin-left: 125px;
+  margin-bottom: 0;
 }

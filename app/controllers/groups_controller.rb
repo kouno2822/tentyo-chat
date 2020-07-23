@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group , only:[:destroy, :join]
   
   def create
     @group = Group.new(group_params)
@@ -33,13 +34,11 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:id])
     @group.users.delete(current_user)
     redirect_to root_path, notice: 'グループから退会しました'
   end
 
   def join
-    @group = Group.find(params[:id])
     @group.users << current_user
     @group.save
     redirect_to group_messages_path(@group), notice: 'グループに参加しました'
@@ -48,6 +47,10 @@ class GroupsController < ApplicationController
   private
   def group_params
     params.require(:group).permit(:group_name)
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 
   # def checkbox
