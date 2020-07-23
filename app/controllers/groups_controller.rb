@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @group = Group.new
+    @modal = Group.new
     # @groups = Group.all.order("created_at DESC")
     # @groups = Group.sort_group
     # binding.pry

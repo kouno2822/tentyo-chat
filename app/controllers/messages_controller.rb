@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     @groups = Group.all
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @modal = Group.new
   end
 
   def create
