@@ -4,6 +4,10 @@
     <div class="Signup__main__left"></div>
     <div class="Signup__main__center">
       <div class="Signup__main__center__login">
+        <div class="Signup__main__center__login-text">ゲストとしてログインする</div>
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'Signup__main__center__login-btn' %>
+      </div>
+      <div class="Signup__main__center__login">
         <div class="Signup__main__center__login-text">アカウントをお持ちの方はこちら</div>
         <%= link_to 'ログインページへ', new_user_session_path, class: 'Signup__main__center__login-btn' %>
       </div>

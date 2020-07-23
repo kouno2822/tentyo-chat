@@ -15,14 +15,11 @@
         <%= f.label :email, class: 'Edit__main__center__form-text' %><br />
         <%= f.email_field :email, autocomplete: "email", class: 'Edit__main__center__form-email' %>
 
-        <%= f.label :パスワード（6文字以上）, class: 'Edit__main__center__form-text' %> <i>(変更したくない場合は空白)</i><br />
+        <%= f.label :パスワード（6文字以上）, class: 'Edit__main__center__form-text' %> <br /><span>※変更がない場合は現在のパスワードをご入力ください</span><br />
         <%= f.password_field :password, autocomplete: "new-password", class: 'Edit__main__center__form-pass' %>
 
         <%= f.label :パスワード（確認用）, class: 'Edit__main__center__form-text' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'Edit__main__center__form-pass_conf' %>
-
-        <%= f.label :現在のパスワード, class: 'Edit__main__center__form-text' %> <i>(ユーザー情報の変更には現在のパスワードが必要)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: 'Edit__main__center__form-pass_conf' %>
  
 
         <%= f.submit "更新", class: 'Edit__main__center__form-btn' %>
