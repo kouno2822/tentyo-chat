@@ -12,10 +12,18 @@ class MessagesController < ApplicationController
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group)
+      respond_to do |format|
+        format.json
+      end
     else
-      redirect_to group_messages_path(group), notice: 'メッセージ送信に失敗しました'
+      @messages = @group.messages.includes(:user)
+      render :index, notice: 'メッセージ送信に失敗しました'
     end
+    # if @message.save
+    #   redirect_to group_messages_path(@group)
+    # else
+    #   redirect_to group_messages_path(group), notice: 'メッセージ送信に失敗しました'
+    # end
   end
 
   private
