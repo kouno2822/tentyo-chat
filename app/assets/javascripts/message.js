@@ -16,6 +16,10 @@ $(function(){
     return html
   }
 
+  $(window).load(function () {
+    $('.Main__right__message').animate({scrollTop: $('.Main__right__message')[0].scrollHeight});
+  });
+
   $('#text-form').on('submit',function(e){
     e.preventDefault()
     let formData = new FormData(this);
