@@ -3,10 +3,12 @@ class MessagesController < ApplicationController
   before_action :transition_limit, only: [:index]
 
   def index
-    @groups = Group.all
     @message = Message.new
     @messages = @group.messages.includes(:user)
     @modal = Group.new
+    @groups = Group.double_search(params[:keyword],params[:filter],current_user)
+    @text_groups = Group.text_groups
+    @no_text_groups = Group.no_text_groups
   end
 
   def create
@@ -19,11 +21,6 @@ class MessagesController < ApplicationController
       @messages = @group.messages.includes(:user)
       render :index, notice: 'メッセージ送信に失敗しました'
     end
-    # if @message.save
-    #   redirect_to group_messages_path(@group)
-    # else
-    #   redirect_to group_messages_path(group), notice: 'メッセージ送信に失敗しました'
-    # end
   end
 
   private
