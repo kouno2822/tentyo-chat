@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/group_name' %>
 <div class="Main">
-  <%= render partial: 'layouts/group_index', locals: {groups: @groups} %>
+  <%= render partial: 'layouts/group_index', locals: {groups: @groups, text_groups: @text_groups, no_text_groups: @no_text_groups} %>
   <div class="Main__right">
     <div class="Main__right__message">
       <%= render partial: 'message', collection: @messages, as: 'message' %>

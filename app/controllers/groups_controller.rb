@@ -31,6 +31,8 @@ class GroupsController < ApplicationController
     # @search_groups = Group.search(params[:keyword])
 
     @groups = Group.double_search(params[:keyword],params[:filter],current_user)
+    @text_groups = Group.text_groups
+    @no_text_groups = Group.no_text_groups
   end
 
   def destroy
@@ -53,11 +55,4 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  # def checkbox
-  #   if params[:filter] == '1'
-  #     @checkbox_groups = current_user.groups
-  #   else
-  #     @checkbox_groups = Group.all
-  #   end
-  # end
 end

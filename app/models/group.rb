@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   validates :group_name, presence: true, uniqueness: true
 
   def last_text
-    last_text = messages.last
+    last_text = messages.first
     if last_text.present?
       last_text.text
     else
@@ -14,7 +14,7 @@ class Group < ApplicationRecord
   end
 
   def last_text_time
-    last_text = messages.last
+    last_text = messages.first
     if last_text.present?
       last_text.created_at.to_s(:datetime_jp)
     else
@@ -29,6 +29,8 @@ class Group < ApplicationRecord
 
   def self.sort_group
     includes(:messages).joins(:messages).order("messages.created_at DESC")
+
+    # includes(:messages).joins(:messages).where().order("created_at DESC")
   end
 
   def self.double_search(keyword,filter,user)
@@ -39,7 +41,12 @@ class Group < ApplicationRecord
     elsif filter == '1'
       user.groups
     else
-      Group.all
+      def self.text_groups
+        Group.sort_group
+      end
+      def self.no_text_groups
+        Group.left_joins(:messages).where(messages: {text: nil}).order('created_at DESC')
+      end
     end
   end
 
