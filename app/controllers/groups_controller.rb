@@ -3,8 +3,8 @@ class GroupsController < ApplicationController
   
   def create
     @group = Group.new(group_params)
-    @group.users << current_user
     if @group.save
+      @group.users << current_user
       redirect_to  group_messages_path(@group), notice: 'グループを作成しました'
     else
       redirect_back(fallback_location: root_path)
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @modal = Group.new
+    @group = Group.new
     Group.double_search(params[:keyword],params[:filter],current_user)
     @text_groups = Group.text_groups(params[:keyword],params[:filter],current_user)
     @no_text_groups = Group.no_text_groups(params[:keyword],params[:filter],current_user)
