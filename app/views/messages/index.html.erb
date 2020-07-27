@@ -5,7 +5,7 @@
     <div class="Main__right__message">
       <%= render partial: 'message', collection: @messages, as: 'message' %>
     </div>
-    <%= form_with model: [@group,@message], class: 'Main__right__form', id: 'text-form', local: true do |f| %>
+    <%= form_with model: [@groups,@message], class: 'Main__right__form', id: 'text-form', local: true do |f| %>
       <%= f.text_area :text, class: 'Main__right__form-text' %>
       <%= f.submit '送信', class: 'Main__right__form-btn' %>
     <% end %>

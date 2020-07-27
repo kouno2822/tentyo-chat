@@ -4,28 +4,28 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
-    @modal = Group.new
+    @messages = @groups.messages.includes(:user)
+    @group = Group.new
     Group.double_search(params[:keyword],params[:filter],current_user)
     @text_groups = Group.text_groups(params[:keyword],params[:filter],current_user)
     @no_text_groups = Group.no_text_groups(params[:keyword],params[:filter],current_user)
   end
 
   def create
-    @message = @group.messages.new(message_params)
+    @message = @groups.messages.new(message_params)
     if @message.save
       respond_to do |format|
         format.json
       end
     else
-      @messages = @group.messages.includes(:user)
+      @messages = @groups.messages.includes(:user)
       render :index, notice: 'メッセージ送信に失敗しました'
     end
   end
 
   private
   def set_group
-    @group = Group.find(params[:group_id])
+    @groups = Group.find(params[:group_id])
   end
 
   def message_params
