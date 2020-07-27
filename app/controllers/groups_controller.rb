@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to  group_messages_path(@group), notice: 'グループを作成しました'
     else
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
   
