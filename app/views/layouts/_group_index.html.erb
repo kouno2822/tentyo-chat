@@ -7,69 +7,45 @@
       <%= f.submit '検索', class: 'Main__left__search-main-btn' %>
     <% end %>
   </div>
-  <% if groups != :no_text_groups %>
-    <% groups.each do |group| %>  
-      <div class="Main__left__group">
-      <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
-          <div class="Main__left__group-name">
-            <%= group.group_name %>
-          </div>
-          <div class="Main__left__group-text">
-            <%= group.last_text%>
-          </div>
-          <div class="Main__left__group-time">
-            <%= group.last_text_time %>
-          </div>
-      <% end %>
-          <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
-            <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
-          <% else %>
-            <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
-          <% end %>
-      </div>
+  <% text_groups.each do |group| %>  
+    <div class="Main__left__group">
+    <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
+        <div class="Main__left__group-name">
+          <%= group.group_name %>
+        </div>
+        <div class="Main__left__group-text">
+          <%= group.last_text%>
+        </div>
+        <div class="Main__left__group-time">
+          <%= group.last_text_time %>
+        </div>
     <% end %>
-  <% else %>
-    <% text_groups.each do |group| %>  
-      <div class="Main__left__group">
-      <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
-          <div class="Main__left__group-name">
-            <%= group.group_name %>
-          </div>
-          <div class="Main__left__group-text">
-            <%= group.last_text%>
-          </div>
-          <div class="Main__left__group-time">
-            <%= group.last_text_time %>
-          </div>
-      <% end %>
-          <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
-            <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
-          <% else %>
-            <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
-          <% end %>
-      </div>
-    <% end %>
-    <% no_text_groups.each do |group| %>  
-      <div class="Main__left__group">
-      <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
-          <div class="Main__left__group-name">
-            <%= group.group_name %>
-          </div>
-          <div class="Main__left__group-text">
-            <%= group.last_text%>
-          </div>
-          <div class="Main__left__group-time">
-            <%= group.last_text_time %>
-          </div>
-      <% end %>
-          <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
-            <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
-          <% else %>
-            <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
-          <% end %>
-      </div>
-    <% end %>
+        <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
+          <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
+        <% else %>
+          <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
+        <% end %>
+    </div>
   <% end %>
-
+  <% no_text_groups.each do |group| %>  
+    <div class="Main__left__group">
+    <%= link_to(group_messages_path(group), class: 'Main__left__group-a') do %>
+        <div class="Main__left__group-name">
+          <%= group.group_name %>
+        </div>
+        <div class="Main__left__group-text">
+          <%= group.last_text%>
+        </div>
+        <div class="Main__left__group-time">
+          <%= group.last_text_time %>
+        </div>
+    <% end %>
+        <% if GroupUser.exists?(group_id: group.id, user_id: current_user.id) %>
+          <div class="Main__left__group-btn" style= 'cursor: default;'>参加中</div>
+        <% else %>
+          <%= link_to "参加する", join_group_path(group), class: 'Main__left__group-btn' %>
+        <% end %>
+    </div>
+  <% end %>
 </div>
 

@@ -24,15 +24,9 @@ class GroupsController < ApplicationController
 
   def index
     @modal = Group.new
-    # @groups = Group.all.order("created_at DESC")
-    # @groups = Group.sort_group
-    # binding.pry
-    # @search_groups = checkbox
-    # @search_groups = Group.search(params[:keyword])
-
-    @groups = Group.double_search(params[:keyword],params[:filter],current_user)
-    @text_groups = Group.text_groups
-    @no_text_groups = Group.no_text_groups
+    Group.double_search(params[:keyword],params[:filter],current_user)
+    @text_groups = Group.text_groups(params[:keyword],params[:filter],current_user)
+    @no_text_groups = Group.no_text_groups(params[:keyword],params[:filter],current_user)
   end
 
   def destroy
